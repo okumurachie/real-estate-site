@@ -28,7 +28,7 @@ function res_enqueue_styles()
     wp_enqueue_style(
         'main_style',
         $uri . '/css/main.css',
-        array('reset_style'),
+        array('reset_style', 'google_fonts'),
         filemtime($dir . '/css/main.css')
     );
 }

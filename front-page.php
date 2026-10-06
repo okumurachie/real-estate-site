@@ -1,7 +1,10 @@
 <?php get_header(); ?>
 
 <main>
-    <h2>トップページ（front-page）</h2>
+    <?php get_template_part('php/front/hero'); ?>
+    <?php get_template_part('php/front/recommend'); ?>
+    <?php get_template_part('php/front/explore'); ?>
+    <?php get_template_part('php/parts/cta-contact'); ?>
 </main>
 
 <?php get_footer(); ?>

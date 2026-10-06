@@ -10,7 +10,7 @@ $(function () {
         $('header').removeClass('open');
     });
 
-    $('#navi a').on('click', function () {
+    $('#global-nav a').on('click', function () {
         $('header').removeClass('open');
     });
 });
