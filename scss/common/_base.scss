@@ -1,0 +1,32 @@
+@use 'variables' as *;
+
+body {
+    font-family: $font-base;
+    font-size: $font-size-base;
+}
+
+a {
+    display: inline-block;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    width: 100%;
+    vertical-align: bottom;
+}
+
+.wrapper {
+    max-width: 1200px;
+    padding: 0 16px;
+    margin-inline: auto;
+}
+
+.header,
+.footer {
+    width: 100%;
+}
