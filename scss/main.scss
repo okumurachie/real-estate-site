@@ -8,3 +8,12 @@
 // layout
 @use 'layout/header';
 @use 'layout/footer';
+
+// component
+@use "component/cta-contact";
+
+// page
+@use "page/front/hero";
+@use "page/front/recommend";
+@use "page/front/explore";
+@use "page/archive/archive-property";
