@@ -3,7 +3,7 @@
         <?php for ($i = 1; $i <= 3; $i++) : ?>
             <li class="hero__bg-item">
                 <img
-                    src="<?php echo esc_url(get_template_directory_uri() . '/img/front/top' . $i . '.jpg') ?>"
+                    src="<?php echo esc_url(get_template_directory_uri() . '/img/front/top' . $i . '.jpeg') ?>"
                     alt="mainvisual<?php echo $i; ?>"
                     <?php echo $i === 1 ? '' : 'loading="lazy"'; ?> />
             </li>
@@ -42,14 +42,24 @@
                         <option value="rent">賃貸</option>
                     </select>
                 </li>
-                <li>
+                <li data-price="buy">
                     <label for="hero-price" class="screen-reader-text">価格帯</label>
-                    <select name="price" id="hero-price">
+                    <select name="price" id="hero-price-buy">
                         <option value="">価格帯</option>
                         <option value="0-2000">〜2,000万円</option>
                         <option value="2000-3000">2,000万〜3,000万円</option>
                         <option value="3000-4000">3,000万〜4,000万円</option>
                         <option value="4000-">4,000万円〜</option>
+                    </select>
+                </li>
+                <li data-price="rent" hidden>
+                    <label for="hero-price" class="screen-reader-text">価格帯</label>
+                    <select name="price" id="hero-price-rent" disabled>
+                        <option value="">家賃</option>
+                        <option value="0-50000">〜5万円</option>
+                        <option value="50000-80000">5万〜8万円</option>
+                        <option value="80000-120000">8万〜12万円</option>
+                        <option value="120000-">12万円〜</option>
                     </select>
                 </li>
             </ul>

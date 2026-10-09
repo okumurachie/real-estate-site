@@ -54,5 +54,15 @@ function res_enqueue_scripts()
         filemtime($dir . '/js/main.js'),
         true
     );
+
+    if (is_front_page()) {
+        wp_enqueue_script(
+            'front_hero_script',
+            $uri . '/js/front-hero.js',
+            array('jquery'),
+            filemtime($dir . '/js/front-hero.js'),
+            true
+        );
+    }
 }
 add_action('wp_enqueue_scripts', 'res_enqueue_scripts');

@@ -10,10 +10,10 @@
 @use 'layout/footer';
 
 // component
-@use "component/cta-contact";
+@use 'component/cta-contact';
 
 // page
-@use "page/front/hero";
-@use "page/front/recommend";
-@use "page/front/explore";
-@use "page/archive/archive-property";
+@use 'pages/front/hero';
+@use 'pages/front/recommend';
+@use 'pages/front/explore';
+@use 'pages/archive/archive-property';
