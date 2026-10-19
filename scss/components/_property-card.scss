@@ -1,0 +1,270 @@
+@use '../common/variables' as *;
+@use '../common/mixin' as m;
+
+.property-card {
+    --card-radius: 8px;
+    --card-border: #e5e5e5;
+    --card-accent: #c0392b;
+    --card-sub: #777;
+
+    position: relative; // リンクの ::after をカード全面に広げる基準
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    min-width: 0;
+    overflow: hidden;
+    isolation: isolate;
+    background: $color-white;
+    border: 1px solid var(--card-border);
+    border-radius: 16px;
+    color: $color-dark;
+    transition:
+        box-shadow 0.2s,
+        transform 0.2s;
+
+    &:hover {
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+        transform: translateY(-2px);
+
+        .property-card__img {
+            transform: scale(1.04);
+        }
+    }
+
+    &__thumb {
+        position: relative;
+        margin: 0;
+        flex-shrink: 0;
+        background: #f2f2f2;
+        overflow: hidden;
+    }
+
+    &__img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.3s;
+    }
+
+    &__labels {
+        position: absolute;
+        top: 8px;
+        left: 8px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 4px;
+        margin: 0;
+        padding: 0;
+    }
+
+    &__label {
+        padding: 2px 8px;
+        background: var(--card-accent);
+        color: #fff;
+        font-size: 11px;
+        font-weight: 700;
+        line-height: 1.6;
+        border-radius: 2px;
+    }
+
+    &__fav {
+        position: absolute;
+        top: 8px;
+        right: 8px;
+        z-index: 2; // 全面リンク（::after）より前面に出す
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 36px;
+        height: 36px;
+        padding: 0;
+        cursor: pointer;
+
+        &:focus-visible {
+            outline: 2px solid $color-dark;
+            outline-offset: 2px;
+        }
+    }
+
+    &__fav-icon {
+        font-size: 1.25rem;
+        line-height: 1;
+        color: #fff; // OFF
+        filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.5));
+        transition: color 0.2s;
+
+        // ON（お気に入り済み）
+        .property-card__fav[aria-pressed='true'] & {
+            color: $color-fav;
+        }
+    }
+
+    &__body {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        gap: 8px;
+        padding: 16px 16px 18px;
+        background-color: $color-white;
+        color: $color-text;
+    }
+
+    &__price {
+        margin: 0;
+        color: $color-dark;
+        font-weight: 700;
+        line-height: 1.2;
+    }
+
+    &__price-num {
+        font-size: 24px;
+    }
+
+    &__price-unit {
+        margin-left: 2px;
+        font-size: 13px;
+    }
+
+    &__title {
+        margin: 0;
+        font-size: 15px;
+        font-weight: 700;
+        line-height: 1.5;
+    }
+
+    &__link {
+        color: inherit;
+        text-decoration: none;
+
+        &::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+        }
+    }
+
+    &__address,
+    &__spec,
+    &__access {
+        margin: 0;
+        color: var(--card-sub);
+        font-size: 12px;
+        line-height: 1.6;
+    }
+
+    &__spec {
+        color: $color-text;
+        font-size: 13px;
+    }
+
+    &__foot {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: 8px;
+        margin-top: auto;
+        padding-top: 8px;
+        border-top: 1px solid var(--card-border);
+    }
+
+    &__more {
+        flex-shrink: 0;
+        color: var(--card-accent);
+        font-size: 12px;
+        font-weight: 700;
+    }
+
+    &__table {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1px;
+        margin: 4px 0 0;
+        background: var(--card-border);
+        border: 1px solid var(--card-border);
+    }
+
+    &__table-item {
+        padding: 6px 8px;
+        background: #fff;
+        text-align: center;
+
+        dt {
+            color: var(--card-sub);
+            font-size: 11px;
+        }
+
+        dd {
+            margin: 2px 0 0;
+            font-size: 13px;
+            font-weight: 700;
+        }
+    }
+
+    &__catch {
+        margin: 4px 0 0;
+        font-size: 13px;
+        line-height: 1.7;
+    }
+
+    &__actions {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+        margin: auto 0 0;
+        padding: 8px 0 0;
+        list-style: none;
+    }
+
+    &__btn {
+        position: relative;
+        z-index: 2; // 全面リンクより手前
+        display: block;
+        padding: 10px;
+        border-radius: 4px;
+        font-size: 13px;
+        font-weight: 700;
+        text-align: center;
+        text-decoration: none;
+
+        &--detail {
+            z-index: auto; // カード全面リンクに任せる
+            background: $color-white;
+            border: 1px solid var(--card-accent);
+            color: var(--card-accent);
+        }
+
+        &--reserve {
+            background: var(--card-accent);
+            border: 1px solid var(--card-accent);
+            color: $color-white;
+        }
+    }
+
+    &--simple {
+        .property-card__body {
+            padding: 10px 12px 12px;
+        }
+
+        .property-card__price-num {
+            font-size: 22px;
+        }
+    }
+
+    // ---------- full（一覧）PCは横並び ----------
+    // &--full {
+    //     @media (min-width: 768px) {
+    //         flex-direction: row;
+
+    //         .property-card__thumb {
+    //             flex: 0 0 38%;
+    //             aspect-ratio: auto;
+    //         }
+
+    //         .property-card__body {
+    //             padding: 16px 20px;
+    //         }
+    //     }
+    // }
+}

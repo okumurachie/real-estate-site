@@ -24,11 +24,18 @@ function res_enqueue_styles()
         null
     );
 
+    wp_register_style(
+        'bootstrap_icons',
+        'https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.2/font/bootstrap-icons.min.css',
+        array(),
+        null
+    );
+
     // main.cssを最後に実行
     wp_enqueue_style(
         'main_style',
         $uri . '/css/main.css',
-        array('reset_style', 'google_fonts'),
+        array('reset_style', 'google_fonts', 'bootstrap_icons'),
         filemtime($dir . '/css/main.css')
     );
 }

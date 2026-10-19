@@ -10,7 +10,8 @@
 @use 'layout/footer';
 
 // component
-@use 'component/cta-contact';
+@use 'components/cta-contact';
+@use 'components/property-card';
 
 // page
 @use 'pages/front/hero';

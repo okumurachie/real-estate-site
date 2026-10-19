@@ -1,0 +1,48 @@
+@use '../../common/variables' as *;
+@use '../../common/mixin' as m;
+
+.recommend {
+    padding-block: 50px;
+    background-color: $color-bg-base;
+    color: $color-dark;
+
+    &__title {
+        font-size: 2rem;
+        font-family: $font-title;
+
+        @include m.sp {
+            font-size: 1.5rem;
+        }
+    }
+
+    &__lead {
+        margin-block: 20px;
+        font-size: 1.5rem;
+
+        @include m.sp {
+            margin-block: 10px;
+            font-size: 1rem;
+        }
+    }
+
+    &__list {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+        align-items: stretch;
+        list-style: none;
+
+        @include m.sp {
+            grid-template-columns: 1fr;
+            gap: 16px;
+        }
+    }
+
+    &__item {
+        display: flex;
+
+        > .property-card {
+            flex: 1;
+        }
+    }
+}
