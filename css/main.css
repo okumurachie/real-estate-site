@@ -301,17 +301,32 @@ img {
   line-height: 1.2;
 }
 .property-card__price-num {
-  font-size: 24px;
+  font-size: 32px;
+}
+@media (max-width: 767px) {
+  .property-card__price-num {
+    font-size: 40px;
+  }
 }
 .property-card__price-unit {
   margin-left: 2px;
-  font-size: 13px;
+  font-size: 24px;
+}
+@media (max-width: 767px) {
+  .property-card__price-unit {
+    font-size: 32px;
+  }
 }
 .property-card__title {
   margin: 0;
-  font-size: 15px;
+  font-size: 24px;
   font-weight: 700;
   line-height: 1.5;
+}
+@media (max-width: 767px) {
+  .property-card__title {
+    font-size: 32px;
+  }
 }
 .property-card__link {
   color: inherit;
@@ -326,12 +341,22 @@ img {
 .property-card__address, .property-card__spec, .property-card__access {
   margin: 0;
   color: var(--card-sub);
-  font-size: 12px;
+  font-size: 16px;
   line-height: 1.6;
+}
+@media (max-width: 767px) {
+  .property-card__address, .property-card__spec, .property-card__access {
+    font-size: 24px;
+  }
 }
 .property-card__spec {
   color: #22302a;
   font-size: 13px;
+}
+@media (max-width: 767px) {
+  .property-card__spec {
+    font-size: 18px;
+  }
 }
 .property-card__foot {
   display: flex;
@@ -408,8 +433,20 @@ img {
 .property-card--simple .property-card__body {
   padding: 10px 12px 12px;
 }
-.property-card--simple .property-card__price-num {
-  font-size: 22px;
+
+.section-head__title {
+  font-size: 2rem;
+  font-family: "Noto Serif JP", serif;
+}
+.section-head__lead {
+  font-size: 1.5rem;
+  margin-bottom: 30px;
+}
+@media (max-width: 767px) {
+  .section-head__lead {
+    font-size: 1.2rem;
+    margin-block: 10px;
+  }
 }
 
 .hero {
@@ -614,28 +651,9 @@ img {
   }
 }
 .recommend {
-  padding-block: 50px;
+  padding-block: 100px;
   background-color: #f7f5f0;
   color: #333;
-}
-.recommend__title {
-  font-size: 2rem;
-  font-family: "Noto Serif JP", serif;
-}
-@media (max-width: 767px) {
-  .recommend__title {
-    font-size: 1.5rem;
-  }
-}
-.recommend__lead {
-  margin-block: 20px;
-  font-size: 1.5rem;
-}
-@media (max-width: 767px) {
-  .recommend__lead {
-    margin-block: 10px;
-    font-size: 1rem;
-  }
 }
 .recommend__list {
   display: grid;

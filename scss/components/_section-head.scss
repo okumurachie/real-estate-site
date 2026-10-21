@@ -1,0 +1,19 @@
+@use '../common/variables' as *;
+@use '../common/mixin' as m;
+
+.section-head {
+    &__title {
+        font-size: 2rem;
+        font-family: $font-title;
+    }
+
+    &__lead {
+        font-size: 1.5rem;
+        margin-bottom: 30px;
+
+        @include m.sp {
+            font-size: 1.2rem;
+            margin-block: 10px;
+        }
+    }
+}

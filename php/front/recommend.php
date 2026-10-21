@@ -37,8 +37,14 @@ if (! $recommend_query->have_posts()) {
 
 <section class="recommend">
     <div class="wrapper">
-        <h2 class="recommend__title">おすすめの物件</h2>
-        <p class="recommend__lead">ご家族の暮らしに合わせて厳選した、今おすすめの住まいです。</p>
+        <div class="section-head">
+            <?php
+            get_template_part('php/components/section-head', null, [
+                'title' => 'おすすめの物件',
+                'lead' => 'ご家族の暮らしに合わせて厳選した、今おすすめの住まいです。',
+            ]);
+            ?>
+        </div>
 
         <ul class="recommend__list">
             <?php while ($recommend_query->have_posts()) : $recommend_query->the_post(); ?>

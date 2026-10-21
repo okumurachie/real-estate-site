@@ -118,19 +118,31 @@
     }
 
     &__price-num {
-        font-size: 24px;
+        font-size: 32px;
+
+        @include m.sp{
+            font-size: 40px;
+        }
     }
 
     &__price-unit {
         margin-left: 2px;
-        font-size: 13px;
+        font-size: 24px;
+
+        @include m.sp{
+            font-size: 32px;
+        }
     }
 
     &__title {
         margin: 0;
-        font-size: 15px;
+        font-size: 24px;
         font-weight: 700;
         line-height: 1.5;
+
+        @include m.sp{
+            font-size: 32px;
+        }
     }
 
     &__link {
@@ -150,13 +162,21 @@
     &__access {
         margin: 0;
         color: var(--card-sub);
-        font-size: 12px;
+        font-size: 16px;
         line-height: 1.6;
+
+        @include m.sp{
+            font-size: 24px;
+        }
     }
 
     &__spec {
         color: $color-text;
         font-size: 13px;
+
+        @include m.sp{
+            font-size: 18px;
+        }
     }
 
     &__foot {
@@ -245,10 +265,6 @@
     &--simple {
         .property-card__body {
             padding: 10px 12px 12px;
-        }
-
-        .property-card__price-num {
-            font-size: 22px;
         }
     }
 

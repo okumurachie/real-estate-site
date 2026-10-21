@@ -2,28 +2,9 @@
 @use '../../common/mixin' as m;
 
 .recommend {
-    padding-block: 50px;
+    padding-block: 100px;
     background-color: $color-bg-base;
     color: $color-dark;
-
-    &__title {
-        font-size: 2rem;
-        font-family: $font-title;
-
-        @include m.sp {
-            font-size: 1.5rem;
-        }
-    }
-
-    &__lead {
-        margin-block: 20px;
-        font-size: 1.5rem;
-
-        @include m.sp {
-            margin-block: 10px;
-            font-size: 1rem;
-        }
-    }
 
     &__list {
         display: grid;
