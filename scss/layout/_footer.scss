@@ -1,0 +1,74 @@
+@use '../common/variables' as *;
+@use '../common/mixin' as m;
+
+.footer {
+    width: 100%;
+    background-color: $color-bg-footer;
+    padding: 30px 16px 30px 16px;
+
+    a {
+        color: $color-text-footer;
+    }
+
+    .wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 0.5px solid $color-text-footer;
+        padding: 0 0 20px 0;
+
+        @include m.sp{
+            flex-direction: column;
+            gap: 20px;
+            align-items: flex-start;
+        }
+
+        .site-title {
+            font-family: $font-title;
+            font-size: clamp(18px, 2.2vw, 28px);
+            white-space: nowrap;
+            flex-shrink: 0;
+
+            a {
+                font-family: inherit;
+                @include m.sp {
+                    font-size: 24px;
+                }
+            }
+        }
+
+        .footer-navi {
+            ul {
+                max-width: 100%;
+                display: flex;
+                flex-wrap: wrap;
+                align-items: center;
+                gap: clamp(10px, 2vw, 32px);
+                font-size: clamp(12px, 1.2vw, 16px);
+                white-space: nowrap;
+
+                @include m.sp {
+                    row-gap: 12px;
+                }
+
+                li{
+                    white-space: nowrap;
+                }
+                .navi-link {
+                    transition: all 0.3s;
+
+                    &:hover {
+                        font-weight: bold;
+                    }
+                }
+            }
+        }
+    }
+
+    small {
+        display: block;
+        text-align: center;
+        padding-top: 20px;
+        color: $color-text-footer;
+    }
+}

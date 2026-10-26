@@ -18,9 +18,19 @@
     border: 1px solid var(--card-border);
     border-radius: 16px;
     color: $color-dark;
+
+    opacity: 0;
+    translate: 0 24px;
     transition:
+        opacity 0.8s ease,
+        translate 0.8s ease,
         box-shadow 0.2s,
         transform 0.2s;
+
+    &.is-visible{
+        opacity: 1;
+        translate: 0 0;
+    }
 
     &:hover {
         box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
@@ -35,6 +45,7 @@
         position: relative;
         margin: 0;
         flex-shrink: 0;
+        aspect-ratio: 4 / 3;
         background: #f2f2f2;
         overflow: hidden;
     }
@@ -120,7 +131,7 @@
     &__price-num {
         font-size: 32px;
 
-        @include m.sp{
+        @include m.sp {
             font-size: 40px;
         }
     }

@@ -4,7 +4,7 @@
  * 物件カード（共通パーツ）
  *
  * 使い方:
- *   get_template_part( 'php/parts/property-card', null, [
+ *   get_template_part( 'php/components/property-card', null, [
  *     'variant' => 'simple', // simple（トップ）/ standard（詳細の近隣物件）/ full（一覧）
  *   ] );
  *

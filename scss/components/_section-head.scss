@@ -9,6 +9,7 @@
 
     &__lead {
         font-size: 1.5rem;
+        color: $color-text-light;
         margin-bottom: 30px;
 
         @include m.sp {

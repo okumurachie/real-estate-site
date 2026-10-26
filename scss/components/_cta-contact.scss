@@ -1,0 +1,119 @@
+@use '../common/variables' as *;
+@use '../common/mixin' as m;
+
+.cta-contact {
+    padding-bottom: 100px;
+    background-color: $color-bg-base;
+    color: $color-dark;
+    padding-inline: 16px;
+
+    .wrapper{
+        background-color: $color-bg-contact;
+        border: none;
+        border-radius: 10px;
+        padding-block: 30px;
+    }
+
+    &__title {
+        text-align: center;
+        font-size: 2.5rem;
+        font-family: $font-title;
+
+        @include m.sp{
+            font-size: 2rem;
+        }
+    }
+
+    &__lead {
+        text-align: center;
+        color: $color-text-light;
+        padding-block: 15px;
+    }
+
+    &__list {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        margin-top: 30px;
+        padding: 0;
+
+        @include m.sp {
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+
+    &__item {
+        flex: 0 1 360px;
+
+        @include m.sp {
+            width: 100%;
+            flex: none;
+        }
+    }
+
+    &__btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        padding: 18px 24px;
+        font-weight: bold;
+        text-decoration: none;
+        border-radius: 25px;
+        transition: all 0.3s;
+
+        i {
+            font-size: 1.4em;
+            line-height: 1;
+        }
+
+        &--dark {
+            background-color: $color-btn;
+            color: $color-white;
+
+            &:hover {
+                opacity: 0.8;
+            }
+        }
+
+        &--light {
+            background-color: $color-white;
+            border: 1px solid $color-border;
+            color: $color-text;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+
+            &:hover {
+                box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+                transform: translateY(-2px);
+            }
+        }
+    }
+
+    &__tel {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        gap: 4px 8px;
+        margin-top: 40px;
+        text-align: center;
+
+        i {
+            font-size: 1.6em;
+            color: $color-text-light;
+        }
+    }
+
+    &__tel-number {
+        font-size: 1.8rem;
+        font-weight: bold;
+        color: inherit;
+        text-decoration: none;
+    }
+
+    &__tel-time {
+        font-size: 1.4rem;
+        color: $color-text-light;
+    }
+}

@@ -30,4 +30,24 @@ $(function () {
             $btn.attr('aria-pressed', 'true');
         }
     });
+
+    /*=================================================
+    スクロール時の物件画像フェード表示
+    ===================================================*/
+    const $cards = $('.property-card');
+
+    function fadeInCards() {
+        const scroll = $(window).scrollTop();
+        const windowHeight = $(window).height();
+
+        $cards.not('.is-visible').each(function () {
+            const target = $(this).offset().top;
+            if(scroll > target - windowHeight + 200) {
+                $(this).addClass('is-visible');
+            }
+        });
+    }
+
+    $(window).on('scroll', fadeInCards);
+    $(window).on('load', fadeInCards);
 });
