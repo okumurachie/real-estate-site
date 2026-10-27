@@ -71,5 +71,15 @@ function res_enqueue_scripts()
             true
         );
     }
+
+    if (is_post_type_archive('property')) {
+        wp_enqueue_script(
+            'property_archive_script',
+            $uri . '/js/property-archive.js',
+            array('jquery'),
+            filemtime($dir . '/js/property-archive.js'),
+            true
+        );
+    }
 }
 add_action('wp_enqueue_scripts', 'res_enqueue_scripts');
