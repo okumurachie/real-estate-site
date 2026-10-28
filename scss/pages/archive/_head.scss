@@ -1,0 +1,61 @@
+@use '../../common/variables' as *;
+@use '../../common/mixin' as m;
+
+.property-archive {
+    background-color: $color-bg-base;
+
+    &__head {
+        padding-bottom: 30px;
+    }
+
+    &__en {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        font-family: $font-title;
+        letter-spacing: 0.3em;
+
+        &::before {
+            content: '';
+            display: block;
+            width: 20px;
+            height: 2px;
+            background-color: $color-text;
+        }
+    }
+
+    &__head-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        gap: 24px;
+
+        @include m.sp {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .section-head__lead {
+            margin-bottom: 0;
+        }
+    }
+
+    &__new {
+        padding: 8px 16px;
+        background-color: $color-white;
+        border-radius: 50px;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        flex-shrink: 0;
+        white-space: nowrap;
+    }
+
+    &__new-dot {
+        display: block;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background-color: $color-text;
+    }
+}

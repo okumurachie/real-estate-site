@@ -1,4 +1,5 @@
 <?php
+
 /**
  * パンくずリスト（共通パーツ）
  * 使い方: get_template_part('php/components/breadcrumb');
@@ -20,7 +21,6 @@ if (is_post_type_archive()) {
     $items[] = [
         'label' => is_post_type_archive('property') ? '物件を探す' : post_type_archive_title('', false),
     ];
-
 } elseif (is_singular() && ! is_page()) {
     // 投稿の詳細ページ（例: 物件詳細）
     $post_type_object = get_post_type_object(get_post_type());
@@ -37,7 +37,6 @@ if (is_post_type_archive()) {
         ];
     }
     $items[] = ['label' => get_the_title()];
-
 } elseif (is_page()) {
     // 固定ページ：親ページがあれば、親（祖先）を上から順に入れる
     $ancestor_ids = array_reverse(get_post_ancestors(get_the_ID()));
@@ -45,14 +44,11 @@ if (is_post_type_archive()) {
         $items[] = ['label' => get_the_title($ancestor_id), 'url' => get_permalink($ancestor_id)];
     }
     $items[] = ['label' => get_the_title()];
-
 } elseif (is_tax() || is_category() || is_tag()) {
     // タクソノミー・カテゴリー・タグの一覧
     $items[] = ['label' => single_term_title('', false)];
-
 } elseif (is_search()) {
     $items[] = ['label' => '検索結果'];
-
 } elseif (is_404()) {
     $items[] = ['label' => 'ページが見つかりません'];
 }
@@ -62,22 +58,24 @@ if (is_post_type_archive()) {
  * --------------------------------------------------------- */
 $last_index = array_key_last($items);
 ?>
-<nav class="page-breadcrumb" aria-label="パンくずリスト">
-    <ol class="page-breadcrumb__list">
-        <?php foreach ($items as $index => $item) : ?>
-            <?php $is_last = ($index === $last_index); ?>
-            <li class="page-breadcrumb__item" <?php echo $is_last ? 'aria-current="page"' : ''; ?>>
-                <?php if (! $is_last && ! empty($item['url'])) : ?>
-                    <a class="page-breadcrumb__link" href="<?php echo esc_url($item['url']); ?>">
-                        <?php if (! empty($item['icon'])) : ?>
-                            <i class="bi <?php echo esc_attr($item['icon']); ?> page-breadcrumb__icon" aria-hidden="true"></i>
-                        <?php endif; ?>
+<div class="wrapper">
+    <nav class="page-breadcrumb" aria-label="パンくずリスト">
+        <ol class="page-breadcrumb__list">
+            <?php foreach ($items as $index => $item) : ?>
+                <?php $is_last = ($index === $last_index); ?>
+                <li class="page-breadcrumb__item" <?php echo $is_last ? 'aria-current="page"' : ''; ?>>
+                    <?php if (! $is_last && ! empty($item['url'])) : ?>
+                        <a class="page-breadcrumb__link" href="<?php echo esc_url($item['url']); ?>">
+                            <?php if (! empty($item['icon'])) : ?>
+                                <i class="bi <?php echo esc_attr($item['icon']); ?> page-breadcrumb__icon" aria-hidden="true"></i>
+                            <?php endif; ?>
+                            <?php echo esc_html($item['label']); ?>
+                        </a>
+                    <?php else : ?>
                         <?php echo esc_html($item['label']); ?>
-                    </a>
-                <?php else : ?>
-                    <?php echo esc_html($item['label']); ?>
-                <?php endif; ?>
-            </li>
-        <?php endforeach; ?>
-    </ol>
-</nav>
+                    <?php endif; ?>
+                </li>
+            <?php endforeach; ?>
+        </ol>
+    </nav>
+</div>

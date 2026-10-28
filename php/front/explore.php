@@ -1,13 +1,11 @@
 <section class="explore">
     <div class="wrapper">
-        <div class="section-head">
-            <?php
-            get_template_part('php/components/section-head', null, [
-                'title' => 'この街を、もっと知る',
-                'lead' => '物件以外の情報も、暮らしを決める大切な判断材料です。',
-            ]);
-            ?>
-        </div>
+        <?php
+        get_template_part('php/components/section-head', null, [
+            'title' => 'この街を、もっと知る',
+            'lead' => '物件以外の情報も、暮らしを決める大切な判断材料です。',
+        ]);
+        ?>
 
         <ul class="explore__list">
             <li>

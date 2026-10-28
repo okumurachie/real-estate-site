@@ -8,12 +8,11 @@
     }
 
     &__lead {
-        font-size: 1.5rem;
+        font-size: clamp(1rem, 0.8rem + 0.8vw, 1.5rem);
         color: $color-text-light;
         margin-bottom: 30px;
 
         @include m.sp {
-            font-size: 1.2rem;
             margin-block: 10px;
         }
     }
