@@ -19,19 +19,19 @@ function res_register_post_types()
     ]);
 
     $taxonomies = [
-        'property_area'    => 'エリア',
-        'property_type'    => '物件種別',
-        'property_feature' => 'こだわり条件',
-        'property_label'   => 'ラベル',
+        'property_area'    => ['label' => 'エリア',       'hierarchical' => true,  'slug' => 'area'],
+        'property_type'    => ['label' => '物件種別',     'hierarchical' => true,  'slug' => 'type'],
+        'property_feature' => ['label' => 'こだわり条件', 'hierarchical' => false, 'slug' => 'feature'],
+        'property_label'   => ['label' => 'ラベル',       'hierarchical' => false, 'slug' => 'label'],
     ];
-    foreach ($taxonomies as $slug => $label) {
-        register_taxonomy($slug, 'property', [
-            'label'        => $label,
-            'hierarchical' => false,
+    foreach ($taxonomies as $taxonomy_name => $settings) {
+        register_taxonomy($taxonomy_name, 'property', [
+            'label'        => $settings['label'],
+            'hierarchical' => $settings['hierarchical'],
             'public'       => true,
             'show_in_rest' => true,
             'show_admin_column' => true,
-            'rewrite'      => ['slug' => $slug],
+            'rewrite'      => ['slug' => $settings['slug']],
         ]);
     }
 }

@@ -63,18 +63,19 @@ function res_get_property_terms(string $taxonomy, int $post_id, array $dummy = [
  */
 function res_get_property_data(int $post_id): array
 {
+    $meta_keys = res_property_search_config()['meta_keys'];
 
     // 価格（万円単位の数値で保存 → 表示時にカンマ区切り）
-    $price      = res_get_property_field('price', $post_id, 3480);
+    $price      = res_get_property_field($meta_keys['price'], $post_id, 3480);
     $price_text = ('' !== $price) ? number_format((float) $price) : '';
 
     // 間取り
-    $layout = res_get_property_field('layout', $post_id, '3LDK');
+    $layout = res_get_property_field($meta_keys['plan'], $post_id, '3LDK');
 
     // 面積（戸建ては建物面積、マンションは専有面積を優先）
-    $building_area = res_get_property_field('building_area', $post_id, 92);
-    $floor_area    = res_get_property_field('floor_area', $post_id, '');
-    $land_area     = res_get_property_field('land_area', $post_id, 120);
+    $building_area = res_get_property_field($meta_keys['building_area'], $post_id, 92);
+    $floor_area    = res_get_property_field($meta_keys['floor_area'], $post_id, '');
+    $land_area     = res_get_property_field($meta_keys['land_area'], $post_id, 120);
     $main_area     = $building_area ?: $floor_area;
     $main_area_txt = $main_area ? $main_area . '㎡' : '';
     $land_area_txt = $land_area ? $land_area . '㎡' : '';
